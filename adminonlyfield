@@ -1,0 +1,66 @@
+Plugin URI: https://www.paidmembershipspro.com/wp/pmpro-customizations/
+Description: Customizations for my Paid Memberships Pro Setup
+Version: .1
+Author: Paid Memberships Pro
+Author URI: https://www.paidmembershipspro.com
+*/
+
+ 
+//Now start placing your customization code below this line
+<?php
+/**
+ * Add the following code below to your PMPro Customizations Plugin - https://www.paidmembershipspro.com/create-a-plugin-for-pmpro-customizations
+ * In this example you will learn how to add 3 checkboxes to Paid Memberships Pro Checkout page.
+ */
+function rh_fields_example_checkbox()
+{
+	//don't break if Register Helper is not loaded
+	if(!function_exists( 'pmprorh_add_registration_field' )) {
+		return false;
+	}
+	
+	//define the fields
+	$fields = array();
+	$fields[] = new PMProRH_Field(
+		'staterep,						// input name, will also be used as meta key
+		'checkbox',						// type of field
+		array(
+			'label' => 'State Rep',
+			'profile' => 'true',
+		)
+	);
+	$fields[] = new PMProRH_Field(
+		'distrep',						// input name, will also be used as meta key
+		'checkbox',						// type of field
+		array(
+			'label' => 'District Rep',
+			'profile' => 'true',
+		)
+	);
+	$fields[] = new PMProRH_Field(
+		'Judge',						// input name, will also be used as meta key
+		'checkbox',						// type of field
+		array(
+			'label' => 'Judge',
+			'profile' => 'true',
+		)
+	);
+	
+	$fields[] = new PMProRH_Field(
+		'BOD',						// input name, will also be used as meta key
+		'checkbox',						// type of field
+		array(
+			'label' => 'BOD',
+			'profile' => 'true',
+		)
+	);
+	
+	//add the fields into a new checkout_boxes are of the checkout page
+	foreach($fields as $field)
+		pmprorh_add_registration_field(
+			'checkout_boxes',				// location on checkout page
+			$field						// PMProRH_Field object
+		);
+	//that's it. see the PMPro Register Helper readme for more information and examples.
+}
+add_action( 'init', 'rh_fields_example_checkbox' );
