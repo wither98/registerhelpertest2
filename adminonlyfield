@@ -26,7 +26,7 @@ function rh_fields_example_checkbox()
 		'checkbox',						// type of field
 		array(
 			'label' => 'State Rep',
-			'profile' => 'true',
+			'profile' => 'only_admin',
 		)
 	);
 	$fields[] = new PMProRH_Field(
@@ -34,7 +34,7 @@ function rh_fields_example_checkbox()
 		'checkbox',						// type of field
 		array(
 			'label' => 'District Rep',
-			'profile' => 'true',
+			'profile' => 'only_admin',
 		)
 	);
 	$fields[] = new PMProRH_Field(
@@ -42,7 +42,7 @@ function rh_fields_example_checkbox()
 		'checkbox',						// type of field
 		array(
 			'label' => 'Judge',
-			'profile' => 'true',
+			'profile' => 'only_admin',
 		)
 	);
 	
@@ -51,7 +51,7 @@ function rh_fields_example_checkbox()
 		'checkbox',						// type of field
 		array(
 			'label' => 'BOD',
-			'profile' => 'true',
+			'profile' => 'only_admin',
 		)
 	);
 	
